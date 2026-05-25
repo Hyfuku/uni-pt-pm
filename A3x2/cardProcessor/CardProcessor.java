@@ -33,7 +33,7 @@ public class CardProcessor {
                 case CLUB:
                     cardMatrix[0][clubIndex++] = card;
                     break;
-
+                    
                 case SPADES:
                     cardMatrix[1][spadeIndex++] = card;
                     break;
@@ -45,12 +45,14 @@ public class CardProcessor {
                 case DIAMOND:
                     cardMatrix[3][diamondIndex++] = card;
                     break;
+                
             }
         }
 
         sortCardValue(cardMatrix);
 
-        return resolveCardMatrix(cardMatrix);
+        resolveCardMatrix(cardMatrix, cardsToBeSorted);
+        return cardsToBeSorted;
     }
 
 
@@ -74,22 +76,17 @@ public class CardProcessor {
         }
     }
 
-    /**
-     * Converts matrix back into sorted array
-     */
-    private Card[] resolveCardMatrix(final Card[][] cardMatrix) {
 
-        Card[] result = new Card[52];
+    private void resolveCardMatrix(final Card[][] cardMatrix, final Card[] targetArray) {
+
         int i = 0;
 
         for (Card[] row : cardMatrix) {
             for (Card card : row) {
                 if (card != null) {
-                    result[i++] = card;
+                    targetArray[i++] = card;
                 }
             }
         }
-
-        return result;
     }
 }
