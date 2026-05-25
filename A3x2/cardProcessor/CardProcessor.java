@@ -1,7 +1,5 @@
 package cardProcessor;
 
-import static cards.Card.*;
-import static cards.Card.Constant.*;
 import cards.*;
 
 /**
@@ -9,87 +7,43 @@ import cards.*;
  */
 public class CardProcessor {
 
-	
-    public Card[] sortCards(final Card[] cardsToBeSorted) {
 
+    public void sortCards(final Card[] cardsToBeSorted) {
         if (cardsToBeSorted == null || cardsToBeSorted.length == 0) {
-            return cardsToBeSorted;
+            return;
         }
 
-        if (cardsToBeSorted.length > 52) {
-            return cardsToBeSorted;
-        }
+        Card[][] cardMatrix = generateCardMatrix(cardsToBeSorted);
 
+        // In-Place zurückschreiben: Spalten absteigend (Ass→2), Zeilen aufsteigend (Club→Diamond)
+        int index = 0;
+        for (int col = 12; col >= 0; col--) {      // 1. Priorität: Rang absteigend
+            for (int row = 0; row < 4; row++) {    // 2. Priorität: Club, Pik, Herz, Karo
+                if (cardMatrix[row][col] != null) {
+                    cardsToBeSorted[index++] = cardMatrix[row][col];
+                }
+            }
+        }
+    }
+
+    private Card[][] generateCardMatrix(Card[] givenCards) {
         Card[][] cardMatrix = new Card[4][13];
 
-        int clubIndex = 0;
-        int spadeIndex = 0;
-        int heartIndex = 0;
-        int diamondIndex = 0;
-
-        for (Card card : cardsToBeSorted) { //better in method (clean code) to lazy
-            switch (card.getSuit()) {
-
-                case CLUB:
-                    cardMatrix[0][clubIndex++] = card;
-                    break;
-
-                case SPADES:
-                    cardMatrix[1][spadeIndex++] = card;
-                    break;
-
-                case HEART:
-                    cardMatrix[2][heartIndex++] = card;
-                    break;
-
-                case DIAMOND:
-                    cardMatrix[3][diamondIndex++] = card;
-                    break;
-            }
+        for (Card card : givenCards) {
+            int row = getSuitIndex(card);
+            int col = card.getRank().value() - 2;  // value() 2..14 → Index 0..12
+            cardMatrix[row][col] = card;
         }
 
-        sortCardValue(cardMatrix);
-
-        return resolveCardMatrix(cardMatrix);
+        return cardMatrix;
     }
 
-
-    private void sortCardValue(Card[][] cardMatrix) {
-        for (Card[] row : cardMatrix) { //iterate through CardMatrix
-
-            for (int n = row.length; n > 1; n--) { //Bubble Sort Implementation
-                for (int i = 0; i < n - 1; i++) {
-
-                    if (row[i] == null || row[i + 1] == null) { //Null Pointer Exception
-                        continue;
-                    }
-
-                    if (row[i].getRank().value() < row[i + 1].getRank().value()) { 
-                        Card temp = row[i]; //local Variable to sort
-                        row[i] = row[i + 1];
-                        row[i + 1] = temp;
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * Converts matrix back into sorted array
-     */
-    private Card[] resolveCardMatrix(final Card[][] cardMatrix) {
-
-        Card[] result = new Card[52];
-        int i = 0;
-
-        for (Card[] row : cardMatrix) {
-            for (Card card : row) {
-                if (card != null) {
-                    result[i++] = card;
-                }
-            }
-        }
-
-        return result;
+    private int getSuitIndex(Card card) {
+        return switch (card.getSuit()) {
+            case CLUB -> 0;
+            case SPADES -> 1;
+            case HEART -> 2;
+            case DIAMOND -> 3;
+        };
     }
 }
