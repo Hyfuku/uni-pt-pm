@@ -20,14 +20,24 @@ public class CardProcessor {
             return cardsToBeSorted;
         }
 
-        Card[][] cardMatrix = new Card[4][13];
+        Card[][] cardMatrix = generateCardMatrix(cardsToBeSorted);
 
-        int clubIndex = 0;
+        sortCardValue(cardMatrix);
+
+        resolveCardMatrix(cardMatrix, cardsToBeSorted);
+        return cardsToBeSorted;
+    }
+
+
+	private Card[][] generateCardMatrix(final Card[] cardsToBeSorted) {
+		Card[][] cardMatrix = new Card[4][12];
+		
+		int clubIndex = 0;
         int spadeIndex = 0;
         int heartIndex = 0;
         int diamondIndex = 0;
 
-        for (Card card : cardsToBeSorted) { //better in method (clean code) to lazy
+        for (Card card : cardsToBeSorted) {
             switch (card.getSuit()) {
 
                 case CLUB:
@@ -48,12 +58,9 @@ public class CardProcessor {
                 
             }
         }
-
-        sortCardValue(cardMatrix);
-
-        resolveCardMatrix(cardMatrix, cardsToBeSorted);
-        return cardsToBeSorted;
-    }
+        
+        return cardMatrix;
+	}
 
 
     private void sortCardValue(Card[][] cardMatrix) {
