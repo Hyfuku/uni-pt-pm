@@ -5,7 +5,7 @@ package patternBasedArrayProcessor;
 /**
  * ArrayProcessor - see task
  * 
- * @author   (your name(s)) 
+ * @author   Alexander Khuu & David Alexander Fuhrmann (S5T5) 
  * @version  (a version number or a date)
  *
  */

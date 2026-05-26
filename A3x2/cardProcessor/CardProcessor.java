@@ -5,6 +5,7 @@ import static cards.Card.Constant.*;
 import cards.*;
 
 /**
+ * @author - Alexander Khuu & David Alexander Fuhrmann (S5T5) 
  * CardProcessor - sort cards in-place - see task
  */
 public class CardProcessor {
