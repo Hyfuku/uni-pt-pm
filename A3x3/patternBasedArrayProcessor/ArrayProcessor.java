@@ -21,16 +21,12 @@ public class ArrayProcessor {
     public long process(long[][] theArray) {
         long total = 0;
 
-        int startRow = 0;
-        for (long[] row : theArray) {
-            int startCol = 0;
-            for (long ignored : row) {   
+        for (int startRow= 0; startRow < theArray.length; startRow++) {
+            for (int startCol = 0; startCol < theArray[startRow].length; startCol++) {
                 if (fits(theArray, startRow, startCol)) {
                     total += sumAt(theArray, startRow, startCol);
                 }
-                startCol++;
             }
-            startRow++;
         }
 
         return total;
@@ -53,6 +49,7 @@ public class ArrayProcessor {
         return true; 
     }
 
+    /// DAS MUSS UMGESCHRIEBEN WERDEN; (CALL BY VALUE FUNKTIONIERET IST ABER ICH DENKE DAS DIE PARAMETER NICHT IDEAL EINGEBUNDEN SIND)
     private long sumAt(long[][] theArray, int startRow, int startCol) {
         long sum = 0;
         for (boolean[] patternRow : PATTERN) {
