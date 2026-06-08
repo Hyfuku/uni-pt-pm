@@ -1,1 +1,0 @@
-P1 :  PalindromeTester (char[] based)
