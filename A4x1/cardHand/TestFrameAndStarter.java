@@ -80,8 +80,7 @@ public class TestFrameAndStarter {
         // Sobald Sie Ihre Lösung(en) in der/den geforderten Klasse(n) implementiert
         // haben,  müssen die Blockkommentarzeichen entfernt werden.
         //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-        
-        /*                                                                      // <- muss weg
+                                                                            // <- muss weg
         Hand someHand;                                                          // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         Hand anotherHand;                                                       // KEIN guter Name, aber hier für diesen Test ist ein besserer Name schwierig
         
@@ -316,7 +315,7 @@ public class TestFrameAndStarter {
         System.out.printf( "-------------------------------------------------------------------------------\n" );
         System.out.printf( "OPTIONAL TESTs  from Student(s)\n" );
         System.out.printf( "\n\n" );
-        */                                                                      // <- muss weg
+                                                                              // <- muss weg
         //###
         //###   Oberhalb dieser Position sind KEINE Änderungen am Code erlaubt.
         //###   Bei der Abgabe müssen die oberen Zeilen im Original-Zustand sein.

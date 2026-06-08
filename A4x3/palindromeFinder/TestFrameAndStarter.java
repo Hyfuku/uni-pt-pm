@@ -54,7 +54,7 @@ public class TestFrameAndStarter {
         //
         System.out.printf( "Environment:\n" );
         System.out.printf( "    #Cores:                 %d\n",  EnvironmentAnalyzer.getAvailableCores() );
-        System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
+        //System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
         System.out.printf( "    assert enabled?:        %s\n",  EnvironmentAnalyzer.isAssertEnabled() );
         System.out.printf( "    UTF-8 configured?:      %s      <- check output\n",  "[ÄËÏÖÜẞäëïöüß🙂😉🙁😟😓😎]" );
         System.out.printf( "\n\n\n\n" );
@@ -76,7 +76,7 @@ public class TestFrameAndStarter {
         // haben,  müssen die Blockkommentarzeichen entfernt werden.
         //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
         
-        /*                                                                      // <- muss weg
+                                                                             // <- muss weg
         
         
         int testCnt = 0;
@@ -382,7 +382,7 @@ public class TestFrameAndStarter {
         System.out.printf( "-------------------------------------------------------------------------------\n" );
         System.out.printf( "OPTIONAL TESTs  from Student(s)\n" );
         System.out.printf( "\n\n" );
-        */                                                                      // <- muss weg
+                                                                             // <- muss weg
         //###
         //###   Oberhalb dieser Position sind KEINE Änderungen am Code erlaubt.
         //###   Bei der Abgabe müssen die oberen Zeilen im Original-Zustand sein.
@@ -435,7 +435,7 @@ public class TestFrameAndStarter {
     
     
     
-    /*                                                                        // <- muss weg
+                                                                          // <- muss weg
     private static void chkText(
         final int testCnt,
         final PalindromeFinder palindromeFinder,
@@ -459,7 +459,7 @@ public class TestFrameAndStarter {
         System.out.printf( "    %s\n",  palindromeFinder.getText() );
         System.out.printf( "\n\n\n" );
     }//method()
-    */                                                                        // <- muss weg
+                                                                         // <- muss weg
     
     
     private static void printTestResult( final String testResult ){
