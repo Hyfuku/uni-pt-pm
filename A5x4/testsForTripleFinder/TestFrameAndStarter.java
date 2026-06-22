@@ -7,6 +7,7 @@ import stuffBeginnersDontHaveToUnderstand.EnvironmentAnalyzer;
 import stuffBeginnersDontHaveToUnderstand.GivenCodeVersion;
 import stuffBeginnersDontHaveToUnderstand.Version;
 //import tripleFinder.CardProcessor;
+import tripleFinder.CardProcessor;
 import tripleFinder.CardProcessor_I;
 
 
@@ -54,7 +55,7 @@ import tripleFinder.CardProcessor_I;
         //
         System.out.printf( "Environment:\n" );
         System.out.printf( "    #Cores:                 %d\n",  EnvironmentAnalyzer.getAvailableCores() );
-        System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
+        //System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
         System.out.printf( "    assert enabled?:        %s\n",  EnvironmentAnalyzer.isAssertEnabled() );
         System.out.printf( "    UTF-8 configured?:      %s      <- check output\n",  "[ÄËÏÖÜẞäëïöüß␣🙂😉🙁😟😓😎☠]" );
         System.out.printf( "\n\n\n\n" );
@@ -67,11 +68,7 @@ import tripleFinder.CardProcessor_I;
         
         
         
-        
-        
-        // Anfang des eigentlichen Tests
-        //==============================
-        /*
+
         final boolean dbgOutputEnable = true;
         
         
@@ -125,9 +122,6 @@ import tripleFinder.CardProcessor_I;
         }//while
         if( dbgOutputEnable )  System.out.printf( "\n==>> " );
         System.out.printf( "%s\n", result );
-        */
-        //----------------------------------------------------------------------// "MARKIERUNG" ;-)
-        // Ab hier dürfen Sie eigene Tests ergänzen
         
     }//method()
     

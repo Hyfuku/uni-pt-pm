@@ -75,7 +75,7 @@ public class StarterForCardDemo {
         //
         System.out.printf( "Environment:\n" );
         System.out.printf( "    #Cores:                 %d\n",  EnvironmentAnalyzer.getAvailableCores() );
-        System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
+        //System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
         System.out.printf( "    assert enabled?:        %s\n",  EnvironmentAnalyzer.isAssertEnabled() );
         System.out.printf( "    UTF-8 configured?:      %s      <- check output\n",  "[ÄËÏÖÜẞäëïöüß🙂😉🙁😟😓😎]" );
         System.out.printf( "\n\n\n\n" );

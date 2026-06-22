@@ -28,19 +28,23 @@ public class CardProcessor {
      * @param lastCard          die gewünschte Karte, die die Ziehung beendet.
      * @param dbgOutputEnable   true schaltet Kontrollausgabe an und false aus.
      */
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRR          <<<                                  !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRRR        <<<                                   !!!
-    // HHH      HHH   III   EEE            RRR      RRR       <<<                                    !!!
-    // HHH      HHH   III   EEE            RRR      RRR      <<<                                     !!!
-    // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRRR      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-    // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRR       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-    // HHH      HHH   III   EEE            RRR   RRR         <<<                                     !!!
-    // HHH      HHH   III   EEE            RRR    RRR         <<<
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR     RRR         <<<                                   !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
-    //
-    // Fügen Sie hier Ihren Code ein
-    // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
-    // ...
+    public void reverseOrder(Deck deck, Card lastCard, boolean dbgOutputEnable) {
+        Stack<Card> cardsDrawn = new Stack<>();
+        Card cardDrawn;
+
+        do {
+            cardDrawn = deck.deal();
+            cardsDrawn.push(cardDrawn);
+            if (dbgOutputEnable) {
+                System.out.println(cardDrawn);
+            }
+        } while (!cardDrawn.equals(lastCard));
+
+        System.out.println("----REVERSE ORDER-----");
+
+        while (!cardsDrawn.isEmpty()) {
+            System.out.println(cardsDrawn.pop());
+        }
+    }
     
 }//class

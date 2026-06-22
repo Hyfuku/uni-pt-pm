@@ -2,11 +2,12 @@
 package cardProcessor;
 
 
-import static cards.Card.*;
-import static cards.Card.Constant.*;
-import cards.*;
-import cards.Card.*;
-import java.util.*;
+import cards.Card;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.stream.Collectors;
 
 
 /**
@@ -27,19 +28,9 @@ public class CardProcessor {
      * 
      * @return          die Karten befreit von Doppelten.
      */
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRR          <<<                                  !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRRR        <<<                                   !!!
-    // HHH      HHH   III   EEE            RRR      RRR       <<<                                    !!!
-    // HHH      HHH   III   EEE            RRR      RRR      <<<                                     !!!
-    // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRRR      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-    // HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRR       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-    // HHH      HHH   III   EEE            RRR   RRR         <<<                                     !!!
-    // HHH      HHH   III   EEE            RRR    RRR         <<<
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR     RRR         <<<                                   !!!
-    // HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
-    //
-    // Fügen Sie hier Ihren Code ein
-    // bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
-    // ...
-    
+
+    public Card[] removeDuplicates(Card[] cards) {
+        HashSet<Card> set = new HashSet<>(Arrays.asList(cards)); // → man würde eigentlich ein stream nutzten mit toSet
+        return set.toArray(new Card[0]); // → man könnte auch ein forLoop nehmen, aber man müsste das halt zwischenspeichern
+    }
 }//class

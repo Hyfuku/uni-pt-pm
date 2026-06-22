@@ -5,6 +5,7 @@ package testsForCardComparator;
 import static cards.Card.*;
 import static cards.Card.Constant.*;
 //
+import cardComparator.UsualOrder;
 import cards.*;
 import cards.Card.*;
 import java.util.*;
@@ -58,7 +59,7 @@ public class TestFrameAndStarter {
         //
         System.out.printf( "Environment:\n" );
         System.out.printf( "    #Cores:                 %d\n",  EnvironmentAnalyzer.getAvailableCores() );
-        System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
+        //System.out.printf( "    Java:                   %s\n",  EnvironmentAnalyzer.determineJavaVersion() );
         System.out.printf( "    assert enabled?:        %s\n",  EnvironmentAnalyzer.isAssertEnabled() );
         System.out.printf( "    UTF-8 configured?:      %s      <- check output\n",  "[ÄËÏÖÜẞäëïöüß␣🙂😉🙁😟😓😎☠]" );
         System.out.printf( "\n\n\n\n" );
@@ -72,11 +73,7 @@ public class TestFrameAndStarter {
         
         
         
-        
-        // Anfang des eigentlichen Tests
-        //==============================
-        
-        /*
+
         final Deck deck = new Deck();
         final int randomNumber = 1+ (int)( 52*Math.random() );
         final List<Card> list = new ArrayList<Card>();
@@ -88,9 +85,6 @@ public class TestFrameAndStarter {
         System.out.println( list );
         Collections.sort( list, usualOrder );
         System.out.println( list );
-        */
-        //----------------------------------------------------------------------// "MARKIERUNG" ;-)
-        // Ab hier dürfen Sie eigene Tests ergänzen
         
     }//method()
     

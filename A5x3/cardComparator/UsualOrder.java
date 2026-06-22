@@ -1,31 +1,40 @@
 package cardComparator;
 
 
-import static cards.Card.*;
-import static cards.Card.Constant.*;
-import cards.*;
-import cards.Card.*;
+import cards.Card;
+
+import java.util.Comparator;
+
+import static cards.Card.Suit;
 
 
 /**
  * Comparator for Cards defining "usual order"
- * 
- * @author   (your name(s)) 
- * @version  (a version number or a date)
+ *
+ * @author (your name(s))
+ * @version (a version number or a date)
  */
-// Klasse "UsualOrder"
-//
-// HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRR          <<<                                  !!!
-// HHH      HHH   III   EEEEEEEEEEEE   RRRRRRRRRRRR        <<<                                   !!!
-// HHH      HHH   III   EEE            RRR      RRR       <<<                                    !!!
-// HHH      HHH   III   EEE            RRR      RRR      <<<                                     !!!
-// HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRRR      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-// HHHHHHHHHHHH   III   EEEEEEEEEEEE   RRRRRRRRRR       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<     !!!
-// HHH      HHH   III   EEE            RRR   RRR         <<<                                     !!!
-// HHH      HHH   III   EEE            RRR    RRR         <<<
-// HHH      HHH   III   EEEEEEEEEEEE   RRR     RRR         <<<                                   !!!
-// HHH      HHH   III   EEEEEEEEEEEE   RRR      RRR         <<<                                  !!!
-//
-// Fügen Sie hier Ihren Code ein
-// bzw. ersetzen Sie diesen Kommentar durch Ihren Code.
-// ...
+public class UsualOrder implements Comparator<Card> {
+
+    private int suitOrder(Suit suit) {
+        switch (suit) {
+            case CLUB:
+                return 0;
+            case SPADES:
+                return 1;
+            case HEART:
+                return 2;
+            case DIAMOND:
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
+    @Override
+    public int compare(Card c1, Card c2) {
+        int rankCmp = Integer.compare(c2.getRank().ordinal(), c1.getRank().ordinal());
+        if (rankCmp != 0) return rankCmp;
+        return Integer.compare(suitOrder(c1.getSuit()), suitOrder(c2.getSuit()));
+    }
+}
