@@ -17,23 +17,18 @@ public class ArrayProcessor {
         {true,  false, false, true},
         {false, true,  true}
     };
-
+    
     public long process(long[][] theArray) {
-        long total = 0;
-
-        int startRow = 0;
-        for (long[] row : theArray) {
-            int startCol = 0;
-            for (long ignored : row) {   
-                if (fits(theArray, startRow, startCol)) {
+    	long total = 0;
+    	
+    	for (int startRow = 0; startRow < theArray.length; startRow++) {
+    		for (int startCol = 0; startCol < theArray[startRow].length; startCol++) {
+    			if (fits(theArray, startRow, startCol)) {
                     total += sumAt(theArray, startRow, startCol);
                 }
-                startCol++;
-            }
-            startRow++;
-        }
-
-        return total;
+    		}
+    	}
+    	return total;
     }
 
     private boolean fits(long[][] theArray, int startRow, int startCol) {
